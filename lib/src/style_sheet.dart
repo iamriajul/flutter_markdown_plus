@@ -71,9 +71,7 @@ class MarkdownStyleSheet {
         textScaler = textScaler ??
             // Internally, only textScaler is used, so convert the scale factor
             // to a linear scaler.
-            (textScaleFactor == null
-                ? null
-                : TextScaler.linear(textScaleFactor)),
+            (textScaleFactor == null ? null : TextScaler.linear(textScaleFactor)),
         _styles = <String, TextStyle?>{
           'a': a,
           'p': p,
@@ -169,9 +167,7 @@ class MarkdownStyleSheet {
     assert(theme.textTheme.textStyle.fontSize != null);
     return MarkdownStyleSheet(
       a: theme.textTheme.textStyle.copyWith(
-        color: theme.brightness == Brightness.dark
-            ? CupertinoColors.link.darkColor
-            : CupertinoColors.link.color,
+        color: theme.brightness == Brightness.dark ? CupertinoColors.link.darkColor : CupertinoColors.link.color,
       ),
       p: theme.textTheme.textStyle,
       pPadding: EdgeInsets.zero,
@@ -406,10 +402,8 @@ class MarkdownStyleSheet {
     );
     // If either of textScaler or textScaleFactor is non-null, pass null for the
     // other instead of the previous value, since only one is allowed.
-    final TextScaler? newTextScaler =
-        textScaler ?? (textScaleFactor == null ? this.textScaler : null);
-    final double? nextTextScaleFactor =
-        textScaleFactor ?? (textScaler == null ? this.textScaleFactor : null);
+    final TextScaler? newTextScaler = textScaler ?? (textScaleFactor == null ? this.textScaler : null);
+    final double? nextTextScaleFactor = textScaleFactor ?? (textScaler == null ? this.textScaleFactor : null);
     return MarkdownStyleSheet(
       a: a ?? this.a,
       p: p ?? this.p,
@@ -446,14 +440,12 @@ class MarkdownStyleSheet {
       tableScrollbarThumbVisibility: tableScrollbarThumbVisibility,
       tableCellsPadding: tableCellsPadding ?? this.tableCellsPadding,
       tableCellsDecoration: tableCellsDecoration ?? this.tableCellsDecoration,
-      tableVerticalAlignment:
-          tableVerticalAlignment ?? this.tableVerticalAlignment,
+      tableVerticalAlignment: tableVerticalAlignment ?? this.tableVerticalAlignment,
       blockquotePadding: blockquotePadding ?? this.blockquotePadding,
       blockquoteDecoration: blockquoteDecoration ?? this.blockquoteDecoration,
       codeblockPadding: codeblockPadding ?? this.codeblockPadding,
       codeblockDecoration: codeblockDecoration ?? this.codeblockDecoration,
-      horizontalRuleDecoration:
-          horizontalRuleDecoration ?? this.horizontalRuleDecoration,
+      horizontalRuleDecoration: horizontalRuleDecoration ?? this.horizontalRuleDecoration,
       textAlign: textAlign ?? this.textAlign,
       h1Align: h1Align ?? this.h1Align,
       h2Align: h2Align ?? this.h2Align,
@@ -465,8 +457,7 @@ class MarkdownStyleSheet {
       orderedListAlign: orderedListAlign ?? this.orderedListAlign,
       blockquoteAlign: blockquoteAlign ?? this.blockquoteAlign,
       codeblockAlign: codeblockAlign ?? this.codeblockAlign,
-      superscriptFontFeatureTag:
-          superscriptFontFeatureTag ?? this.superscriptFontFeatureTag,
+      superscriptFontFeatureTag: superscriptFontFeatureTag ?? this.superscriptFontFeatureTag,
       textScaler: newTextScaler,
       textScaleFactor: nextTextScaleFactor,
     );

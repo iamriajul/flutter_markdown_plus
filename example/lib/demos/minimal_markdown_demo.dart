@@ -91,8 +91,7 @@ void main() {
 ```
 """;
 
-class MinimalMarkdownDemo extends StatelessWidget
-    implements MarkdownDemoWidget {
+class MinimalMarkdownDemo extends StatelessWidget implements MarkdownDemoWidget {
   const MinimalMarkdownDemo({super.key});
 
   static const String _title = 'Minimal Markdown Demo';

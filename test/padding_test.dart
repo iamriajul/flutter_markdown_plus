@@ -30,8 +30,7 @@ void defineTests() {
           ),
         );
 
-        final List<Padding> paddings =
-            tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final List<Padding> paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 4);
         expect(

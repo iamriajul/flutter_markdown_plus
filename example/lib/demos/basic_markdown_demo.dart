@@ -60,8 +60,7 @@ class BasicMarkdownDemo extends StatefulWidget implements MarkdownDemoWidget {
       'have on basic and extended Markdown tagged elements.';
 
   @override
-  Future<String> get data =>
-      rootBundle.loadString('assets/markdown_test_page.md');
+  Future<String> get data => rootBundle.loadString('assets/markdown_test_page.md');
 
   @override
   Future<String> get notes => Future<String>.value(_notes);
@@ -73,8 +72,7 @@ class BasicMarkdownDemo extends StatefulWidget implements MarkdownDemoWidget {
 class _BasicMarkdownDemoState extends State<BasicMarkdownDemo> {
   MarkdownExtensionSet _extensionSet = MarkdownExtensionSet.githubFlavored;
 
-  final Map<String, MarkdownExtensionSet> _menuItems =
-      Map<String, MarkdownExtensionSet>.fromIterables(
+  final Map<String, MarkdownExtensionSet> _menuItems = Map<String, MarkdownExtensionSet>.fromIterables(
     MarkdownExtensionSet.values.map((MarkdownExtensionSet e) => e.displayTitle),
     MarkdownExtensionSet.values,
   );
@@ -105,8 +103,7 @@ class _BasicMarkdownDemoState extends State<BasicMarkdownDemo> {
                   data: snapshot.data!,
                   imageDirectory: 'https://raw.githubusercontent.com',
                   extensionSet: _extensionSet.value,
-                  onTapLink: (String text, String? href, String title) =>
-                      linkOnTapHandler(context, text, href, title),
+                  onTapLink: (String text, String? href, String title) => linkOnTapHandler(context, text, href, title),
                 ),
               ),
             ],
@@ -129,14 +126,11 @@ class _BasicMarkdownDemoState extends State<BasicMarkdownDemo> {
   ) async {
     unawaited(showDialog<Widget>(
       context: context,
-      builder: (BuildContext context) =>
-          _createDialog(context, text, href, title),
+      builder: (BuildContext context) => _createDialog(context, text, href, title),
     ));
   }
 
-  Widget _createDialog(
-          BuildContext context, String text, String? href, String title) =>
-      AlertDialog(
+  Widget _createDialog(BuildContext context, String text, String? href, String title) => AlertDialog(
         title: const Text('Reference Link'),
         content: SingleChildScrollView(
           child: ListBody(

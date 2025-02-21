@@ -111,8 +111,7 @@ class DemoNotesView extends StatelessWidget {
   ) async {
     await showDialog<Widget>(
       context: context,
-      builder: (BuildContext context) =>
-          _createDialog(context, text, href, title),
+      builder: (BuildContext context) => _createDialog(context, text, href, title),
     );
   }
 
@@ -166,8 +165,7 @@ class DemoNotesView extends StatelessWidget {
           return Markdown(
             data: snapshot.data!,
             extensionSet: MarkdownExtensionSet.githubFlavored.value,
-            onTapLink: (String text, String? href, String title) =>
-                linkOnTapHandler(context, text, href, title),
+            onTapLink: (String text, String? href, String title) => linkOnTapHandler(context, text, href, title),
           );
         } else {
           return const CircularProgressIndicator();

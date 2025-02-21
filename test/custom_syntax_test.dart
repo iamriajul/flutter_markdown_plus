@@ -51,8 +51,7 @@ void defineTests() {
             ),
           ),
         );
-        final ColoredBox container =
-            tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
+        final ColoredBox container = tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
         expect(container.color, Colors.red);
         expect(container.child, isInstanceOf<Text>());
         expect((container.child! as Text).data, blockContent);
@@ -69,8 +68,7 @@ void defineTests() {
         await tester.pumpWidget(
           boilerplate(
             Markdown(
-              data:
-                  '$textBefore\n{{custom}}\n$blockContent\n{{/custom}}\n$textAfter',
+              data: '$textBefore\n{{custom}}\n$blockContent\n{{/custom}}\n$textAfter',
               extensionSet: md.ExtensionSet.none,
               blockSyntaxes: <md.BlockSyntax>[CustomTagBlockSyntax()],
               builders: <String, MarkdownElementBuilder>{
@@ -80,8 +78,7 @@ void defineTests() {
           ),
         );
 
-        final ColoredBox container =
-            tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
+        final ColoredBox container = tester.widgetList(find.byType(ColoredBox)).first as ColoredBox;
         expect(container.color, Colors.red);
         expect(container.child, isInstanceOf<Text>());
         expect((container.child! as Text).data, blockContent);
@@ -105,8 +102,7 @@ void defineTests() {
         );
 
         final Text textWidget = tester.widget(find.byType(Text));
-        final TextSpan span =
-            (textWidget.textSpan! as TextSpan).children![1] as TextSpan;
+        final TextSpan span = (textWidget.textSpan! as TextSpan).children![1] as TextSpan;
 
         expect(span.children, null);
         expect(span.recognizer.runtimeType, equals(TapGestureRecognizer));
@@ -230,18 +226,7 @@ class SubscriptSyntax extends md.InlineSyntax {
 }
 
 class SubscriptBuilder extends MarkdownElementBuilder {
-  static const List<String> _subscripts = <String>[
-    '₀',
-    '₁',
-    '₂',
-    '₃',
-    '₄',
-    '₅',
-    '₆',
-    '₇',
-    '₈',
-    '₉'
-  ];
+  static const List<String> _subscripts = <String>['₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉'];
 
   @override
   Widget visitElementAfter(md.Element element, _) {
@@ -264,9 +249,8 @@ class WikilinkSyntax extends md.InlineSyntax {
   @override
   bool onMatch(md.InlineParser parser, Match match) {
     final String link = match[1]!;
-    final md.Element el =
-        md.Element('wikilink', <md.Element>[md.Element.text('span', link)])
-          ..attributes['href'] = link.replaceAll(' ', '_');
+    final md.Element el = md.Element('wikilink', <md.Element>[md.Element.text('span', link)])
+      ..attributes['href'] = link.replaceAll(' ', '_');
 
     parser.addNode(el);
     return true;
@@ -276,8 +260,7 @@ class WikilinkSyntax extends md.InlineSyntax {
 class WikilinkBuilder extends MarkdownElementBuilder {
   @override
   Widget visitElementAfter(md.Element element, _) {
-    final TapGestureRecognizer recognizer = TapGestureRecognizer()
-      ..onTap = () {};
+    final TapGestureRecognizer recognizer = TapGestureRecognizer()..onTap = () {};
     addTearDown(recognizer.dispose);
     return Text.rich(
       TextSpan(text: element.textContent, recognizer: recognizer),
@@ -391,8 +374,7 @@ class ImgBuilder extends MarkdownElementBuilder {
 class NoteBuilder extends MarkdownElementBuilder {
   @override
   Widget? visitText(md.Text text, TextStyle? preferredStyle) {
-    return ColoredBox(
-        color: Colors.red, child: Text(text.text, style: preferredStyle));
+    return ColoredBox(color: Colors.red, child: Text(text.text, style: preferredStyle));
   }
 
   @override
@@ -426,8 +408,7 @@ class CustomTagBlockBuilder extends MarkdownElementBuilder {
   ) {
     if (element.tag == 'custom') {
       final String content = element.attributes['content']!;
-      return ColoredBox(
-          color: Colors.red, child: Text(content, style: preferredStyle));
+      return ColoredBox(color: Colors.red, child: Text(content, style: preferredStyle));
     }
     return const SizedBox.shrink();
   }
@@ -447,8 +428,7 @@ class CustomTagBlockSyntax extends md.BlockSyntax {
     parser.advance();
 
     final StringBuffer buffer = StringBuffer();
-    while (
-        !parser.current.content.startsWith('{{/custom}}') && !parser.isDone) {
+    while (!parser.current.content.startsWith('{{/custom}}') && !parser.isDone) {
       buffer.writeln(parser.current.content);
       parser.advance();
     }

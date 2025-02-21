@@ -24,14 +24,12 @@ class DemoCard extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         child: ConstrainedBox(
-          constraints:
-              const BoxConstraints(minHeight: 50, minWidth: 425, maxWidth: 425),
+          constraints: const BoxConstraints(minHeight: 50, minWidth: 425, maxWidth: 425),
           child: Card(
               color: Colors.blue,
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[

@@ -81,8 +81,7 @@ void defineTests() {
         );
 
         final Iterable<Widget> widgets = tester.allWidgets;
-        final Image image =
-            widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final Image image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is NetworkImage, isTrue);
         expect((image.image as NetworkImage).url, 'https://localhost/img.png');
@@ -100,8 +99,7 @@ void defineTests() {
         );
 
         final Iterable<Widget> widgets = tester.allWidgets;
-        final Image image =
-            widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final Image image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is FileImage, isTrue);
       },
@@ -119,8 +117,7 @@ void defineTests() {
         );
 
         final Iterable<Widget> widgets = tester.allWidgets;
-        final Image image =
-            widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final Image image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is NetworkImage, isTrue);
       },
@@ -151,8 +148,7 @@ void defineTests() {
           ),
         );
 
-        final Image image = tester.allWidgets
-            .firstWhere((Widget widget) => widget is Image) as Image;
+        final Image image = tester.allWidgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image is AssetImage, isTrue);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
@@ -166,9 +162,7 @@ void defineTests() {
         await tester.pumpAndSettle();
 
         await expectLater(
-            find.byType(Container),
-            matchesGoldenFile(
-                'assets/images/golden/image_test/resource_asset_logo.png'));
+            find.byType(Container), matchesGoldenFile('assets/images/golden/image_test/resource_asset_logo.png'));
       },
       skip: kIsWeb, // Goldens are platform-specific.
     );
@@ -227,8 +221,7 @@ void defineTests() {
           ),
         );
 
-        final GestureDetector detector =
-            tester.widget(find.byType(GestureDetector));
+        final GestureDetector detector = tester.widget(find.byType(GestureDetector));
         detector.onTap!();
 
         expect(tapTexts.length, 1);
@@ -243,8 +236,7 @@ void defineTests() {
       (WidgetTester tester) async {
         final List<String> tapTexts = <String>[];
         final List<String?> tapResults = <String?>[];
-        const String data =
-            '[Text before ![alt](https://img#50x50) text after](href)';
+        const String data = '[Text before ![alt](https://img#50x50) text after](href)';
         await tester.pumpWidget(
           boilerplate(
             Markdown(
@@ -257,8 +249,7 @@ void defineTests() {
           ),
         );
 
-        final GestureDetector detector =
-            tester.widget(find.byType(GestureDetector));
+        final GestureDetector detector = tester.widget(find.byType(GestureDetector));
         detector.onTap!();
 
         final Iterable<Text> texts = tester.widgetList(find.byType(Text));
@@ -290,8 +281,7 @@ void defineTests() {
       (WidgetTester tester) async {
         final List<String> tapTexts = <String>[];
         final List<String?> tapResults = <String?>[];
-        const String data =
-            '[Link before](firstHref)[![alt](https://img#50x50)](imageHref)[link after](secondHref)';
+        const String data = '[Link before](firstHref)[![alt](https://img#50x50)](imageHref)[link after](secondHref)';
 
         await tester.pumpWidget(
           boilerplate(
@@ -310,8 +300,7 @@ void defineTests() {
         final TextSpan firstSpan = firstTextWidget.textSpan! as TextSpan;
         (firstSpan.recognizer as TapGestureRecognizer?)!.onTap!();
 
-        final GestureDetector detector =
-            tester.widget(find.byType(GestureDetector));
+        final GestureDetector detector = tester.widget(find.byType(GestureDetector));
         detector.onTap!();
 
         final Text lastTextWidget = texts.last;
@@ -413,8 +402,7 @@ void defineTests() {
       'custom image builder',
       (WidgetTester tester) async {
         const String data = '![alt](https://img.png)';
-        Widget builder(Uri uri, String? title, String? alt) =>
-            Image.asset('assets/logo.png');
+        Widget builder(Uri uri, String? title, String? alt) => Image.asset('assets/logo.png');
 
         await tester.pumpWidget(
           boilerplate(
@@ -437,8 +425,7 @@ void defineTests() {
         );
 
         final Iterable<Widget> widgets = tester.allWidgets;
-        final Image image =
-            widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final Image image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
 
         expect(image.image.runtimeType, AssetImage);
         expect((image.image as AssetImage).assetName, 'assets/logo.png');
@@ -452,9 +439,7 @@ void defineTests() {
         await tester.pumpAndSettle();
 
         await expectLater(
-            find.byType(Container),
-            matchesGoldenFile(
-                'assets/images/golden/image_test/custom_builder_asset_logo.png'));
+            find.byType(Container), matchesGoldenFile('assets/images/golden/image_test/custom_builder_asset_logo.png'));
         imageCache.clear();
       },
       skip: kIsWeb, // Goldens are platform-specific.

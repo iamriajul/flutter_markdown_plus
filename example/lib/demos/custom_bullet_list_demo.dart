@@ -45,8 +45,7 @@ This is the custom bullet list demo. This demo shows how to customize the bullet
 This demo example is being preserved for reference purposes.
 ''';
 
-class CustomBulletListDemo extends StatelessWidget
-    implements MarkdownDemoWidget {
+class CustomBulletListDemo extends StatelessWidget implements MarkdownDemoWidget {
   const CustomBulletListDemo({super.key});
 
   static const String _title = 'Custom Bullet List Demo';
@@ -73,8 +72,7 @@ class CustomBulletListDemo extends StatelessWidget
             fit: BoxFit.scaleDown,
             child: switch (parameters.style) {
               BulletStyle.unorderedList => const Text('・'),
-              BulletStyle.orderedList =>
-                Text('${parameters.nestLevel}-${parameters.index + 1}.'),
+              BulletStyle.orderedList => Text('${parameters.nestLevel}-${parameters.index + 1}.'),
             },
           ),
         ),

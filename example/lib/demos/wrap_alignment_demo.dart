@@ -43,8 +43,7 @@ class WrapAlignmentDemo extends StatefulWidget implements MarkdownDemoWidget {
       'spacing parameters have on various Markdown tagged elements.';
 
   @override
-  Future<String> get data =>
-      rootBundle.loadString('assets/markdown_test_page.md');
+  Future<String> get data => rootBundle.loadString('assets/markdown_test_page.md');
 
   @override
   Future<String> get notes => Future<String>.value(_notes);
@@ -58,15 +57,13 @@ class _WrapAlignmentDemoState extends State<WrapAlignmentDemo> {
 
   WrapAlignment _wrapAlignment = WrapAlignment.start;
 
-  final Map<String, WrapAlignment> _wrapAlignmentMenuItems =
-      Map<String, WrapAlignment>.fromIterables(
+  final Map<String, WrapAlignment> _wrapAlignmentMenuItems = Map<String, WrapAlignment>.fromIterables(
     WrapAlignment.values.map((WrapAlignment e) => e.displayTitle),
     WrapAlignment.values,
   );
 
   static const List<double> _spacing = <double>[4.0, 8.0, 16.0, 24.0, 32.0];
-  final Map<String, double> _blockSpacingMenuItems =
-      Map<String, double>.fromIterables(
+  final Map<String, double> _blockSpacingMenuItems = Map<String, double>.fromIterables(
     _spacing.map((double e) => e.toString()),
     _spacing,
   );
@@ -108,8 +105,7 @@ class _WrapAlignmentDemoState extends State<WrapAlignmentDemo> {
                   key: Key(_wrapAlignment.toString()),
                   data: snapshot.data!,
                   imageDirectory: 'https://raw.githubusercontent.com',
-                  styleSheet:
-                      MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
+                  styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
                     blockSpacing: _blockSpacing,
                     textAlign: _wrapAlignment,
                     pPadding: const EdgeInsets.only(bottom: 4.0),
@@ -130,9 +126,7 @@ class _WrapAlignmentDemoState extends State<WrapAlignmentDemo> {
                     blockquoteAlign: _wrapAlignment,
                     codeblockAlign: _wrapAlignment,
                   ),
-                  paddingBuilders: <String, MarkdownPaddingBuilder>{
-                    'p': CustomPaddingBuilder()
-                  },
+                  paddingBuilders: <String, MarkdownPaddingBuilder>{'p': CustomPaddingBuilder()},
                 ),
               ),
             ],

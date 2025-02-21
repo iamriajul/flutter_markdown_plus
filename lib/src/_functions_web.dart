@@ -13,8 +13,7 @@ import 'style_sheet.dart';
 import 'widget.dart';
 
 /// Type for a function that creates image widgets.
-typedef ImageBuilder = Widget Function(
-    Uri uri, String? imageDirectory, double? width, double? height);
+typedef ImageBuilder = Widget Function(Uri uri, String? imageDirectory, double? width, double? height);
 
 /// A default image builder handling http/https, resource, data, and file URLs.
 // ignore: prefer_function_declarations_over_variables
@@ -95,11 +94,9 @@ final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?)
   MarkdownStyleSheetBaseTheme? baseTheme,
 ) {
   final MarkdownStyleSheet result = switch (baseTheme) {
-    MarkdownStyleSheetBaseTheme.platform
-        when _userAgent.toDart.contains('Mac OS X') =>
+    MarkdownStyleSheetBaseTheme.platform when _userAgent.toDart.contains('Mac OS X') =>
       MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
-    MarkdownStyleSheetBaseTheme.cupertino =>
-      MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
+    MarkdownStyleSheetBaseTheme.cupertino => MarkdownStyleSheet.fromCupertinoTheme(CupertinoTheme.of(context)),
     _ => MarkdownStyleSheet.fromTheme(Theme.of(context)),
   };
 
@@ -108,8 +105,7 @@ final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme?)
   );
 };
 
-Widget _handleDataSchemeUri(
-    Uri uri, final double? width, final double? height) {
+Widget _handleDataSchemeUri(Uri uri, final double? width, final double? height) {
   final String mimeType = uri.data!.mimeType;
   if (mimeType.startsWith('image/')) {
     return Image.memory(

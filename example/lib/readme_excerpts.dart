@@ -51,10 +51,7 @@ void createMarkdownWithEmojiExtension() {
     data: 'Insert emoji :smiley: here',
     extensionSet: md.ExtensionSet(
       md.ExtensionSet.gitHubFlavored.blockSyntaxes,
-      <md.InlineSyntax>[
-        md.EmojiSyntax(),
-        ...md.ExtensionSet.gitHubFlavored.inlineSyntaxes
-      ],
+      <md.InlineSyntax>[md.EmojiSyntax(), ...md.ExtensionSet.gitHubFlavored.inlineSyntaxes],
     ),
   );
   // #enddocregion CreateMarkdownWithEmojiExtension

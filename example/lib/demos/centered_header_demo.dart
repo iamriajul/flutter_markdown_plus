@@ -36,8 +36,7 @@ class CenteredHeaderDemo extends StatelessWidget implements MarkdownDemoWidget {
   String get title => CenteredHeaderDemo._title;
 
   @override
-  String get description =>
-      'An example of using a user defined builder to implement a centered headline';
+  String get description => 'An example of using a user defined builder to implement a centered headline';
 
   @override
   Future<String> get data => Future<String>.value(_data);
