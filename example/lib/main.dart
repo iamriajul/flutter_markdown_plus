@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 ///
 /// The simplest use case that illustrates how to make use of the
-/// flutter_markdown package is to include a Markdown widget in a widget tree
+/// flutter_markdown_plus package is to include a Markdown widget in a widget tree
 /// and supply it with a character string of text containing Markdown formatting
 /// syntax. Here is a simple Flutter app that creates a Markdown widget that
 /// formats and displays the text in the string _markdownData. The resulting
@@ -11,7 +11,7 @@
 /// plain text Markdown syntax.
 ///
 /// import 'package:flutter/material.dart';
-/// import 'package:flutter_markdown/flutter_markdown.dart';
+/// import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 ///
 /// const String _markdownData = """
 /// # Minimal Markdown Test
@@ -50,10 +50,10 @@
 ///   );
 /// }
 ///
-/// The flutter_markdown package has options for customizing and extending the
+/// The flutter_markdown_plus package has options for customizing and extending the
 /// parsing of Markdown syntax and building of the formatted output. The demos
 /// in this example app illustrate some of the potentials of the
-/// flutter_markdown package.
+/// flutter_markdown_plus package.
 library;
 
 import 'package:flutter/material.dart';

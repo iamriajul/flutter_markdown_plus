@@ -284,13 +284,13 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "flutter_markdown",
+      "name": "flutter_markdown_plus",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2025-02-20T15:16:14.882131Z",
+  "generated": "2025-02-21T09:00:28.332186Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///Users/kravoleksii/fvm/versions/3.27.1",

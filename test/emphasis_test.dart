@@ -4,7 +4,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'utils.dart';
 
@@ -4042,7 +4042,7 @@ void defineTests() {
         );
       });
 
-      // Rule 14 doesn't make any difference to flutter_markdown but tests for
+      // Rule 14 doesn't make any difference to flutter_markdown_plus but tests for
       // rule 14 are included here for completeness.
       group('Rule 14', () {
         testWidgets(

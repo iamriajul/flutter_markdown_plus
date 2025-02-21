@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:markdown/markdown.dart' as md;
 
-import '../flutter_markdown.dart';
+import '../flutter_markdown_plus.dart';
 import '_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
 
 /// Signature for callbacks used by [MarkdownWidget] when
@@ -169,7 +169,7 @@ enum MarkdownListItemCrossAxisAlignment {
   /// However, note that this alignment does not support intrinsic height
   /// measurements because [RenderFlex] does not support it for
   /// [CrossAxisAlignment.baseline].
-  /// See https://github.com/flutter/flutter_markdown/issues/311 for cases,
+  /// See https://github.com/flutter/flutter_markdown_plus/issues/311 for cases,
   /// where this might be a problem for you.
   ///
   /// See also:
@@ -183,7 +183,7 @@ enum MarkdownListItemCrossAxisAlignment {
   ///
   /// However, note that this alignment might not line up the bullet with the
   /// list text in the way you would expect in certain scenarios.
-  /// See https://github.com/flutter/flutter_markdown/issues/169 for example
+  /// See https://github.com/flutter/flutter_markdown_plus/issues/169 for example
   /// cases that do not produce expected results.
   ///
   /// See also:

@@ -1,5 +1,5 @@
 # Flutter Markdown
-[![pub package](https://img.shields.io/pub/v/flutter_markdown.svg)](https://pub.dartlang.org/packages/flutter_markdown)
+[![pub package](https://img.shields.io/pub/v/flutter_markdown_plus.svg)](https://pub.dartlang.org/packages/flutter_markdown_plus)
 
 A markdown renderer for Flutter. It supports the
 [original format](https://daringfireball.net/projects/markdown/), but no inline
@@ -7,11 +7,11 @@ HTML.
 
 ## Overview
 
-The [`flutter_markdown`](https://pub.dev/packages/flutter_markdown) package
+The [`flutter_markdown_plus`](https://pub.dev/packages/flutter_markdown_plus) package
 renders Markdown, a lightweight markup language, into a Flutter widget
 containing a rich text representation.
 
-`flutter_markdown` is built on top of the Dart
+`flutter_markdown_plus` is built on top of the Dart
 [`markdown`](https://pub.dev/packages/markdown) package, which parses
 the Markdown into an abstract syntax tree (AST). The nodes of the AST are an
 HTML representation of the Markdown data.
@@ -28,9 +28,9 @@ generated HTML. This *trick* has allowed users to perform some customization
 or tweaking of the HTML output. A common HTML tweak is to insert HTML line-break
 elements **\<br />** in Markdown source to force additional line breaks not
 supported by the Markdown syntax. This HTML *trick* doesn't apply to Flutter. The
-`flutter_markdown` package doesn't support inline HTML.
+`flutter_markdown_plus` package doesn't support inline HTML.
 
-## Markdown Specifications and `flutter_markdown` Compliance
+## Markdown Specifications and `flutter_markdown_plus` Compliance
 
 There are three seminal documents regarding Markdown syntax; the
 [original Markdown syntax documentation](https://daringfireball.net/projects/markdown/syntax)
@@ -42,11 +42,11 @@ The CommonMark specification brings order to and clarifies the Markdown syntax
 cases left ambiguous or unclear in the Gruber document. GitHub Flavored
 Markdown (GFM) is a strict superset of CommonMark used by GitHub.
 
-The `markdown` package, and in extension, the `flutter_markdown` package, supports
+The `markdown` package, and in extension, the `flutter_markdown_plus` package, supports
 four levels of Markdown syntax; basic, CommonMark, GitHub Flavored, and GitHub
 Web. Basic, CommonMark, and GitHub Flavored adhere to the three Markdown
 documents, respectively. GitHub Web adds header ID and emoji support. The
-`flutter_markdown` package defaults to GitHub Flavored Markdown.
+`flutter_markdown_plus` package defaults to GitHub Flavored Markdown.
 
 ## Getting Started
 
@@ -150,7 +150,7 @@ The `Img` tag only supports the following image locations:
 ## Verifying Markdown Behavior
 
 Verifying Markdown behavior in other applications can often be useful to track
-down or identify unexpected output from the `flutter_markdown` package. Two
+down or identify unexpected output from the `flutter_markdown_plus` package. Two
 valuable resources are the
 [Dart Markdown Live Editor](https://dart-lang.github.io/markdown/) and the
 [Markdown Live Preview](https://markdownlivepreview.com/). These two resources
