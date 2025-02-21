@@ -360,7 +360,7 @@
 * Rebuilt `example/android` and `example/ios` directories
 
 **Note:** this version has an implicit minimum supported version of Flutter 1.10.7.
-See [flutter/flutter_markdown_plus issue #156](https://github.com/flutter/flutter_markdown_plus/issues/156) for more detail.
+See [flutter/flutter_markdown issue #156](https://github.com/flutter/flutter_markdown/issues/156) for more detail.
 
 ## 0.3.0
 

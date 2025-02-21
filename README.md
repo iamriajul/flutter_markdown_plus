@@ -33,7 +33,7 @@ supported by the Markdown syntax. This HTML *trick* doesn't apply to Flutter. Th
 ## Markdown Specifications and `flutter_markdown_plus` Compliance
 
 There are three seminal documents regarding Markdown syntax; the
-[original Markdown syntax documentation](https://daringfireball.net/projects/markdown/syntax)
+[original Markdown syntax documentation](https://daringfireball.net/projects/markdown/syntax) 
 specified by John Gruber, the
 [CommonMark specification](https://spec.commonmark.org/0.29/), and the
 [GitHub Flavored Markdown specification](https://github.github.com/gfm/).

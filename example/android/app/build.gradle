@@ -54,7 +54,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-    namespace 'com.package.fluttermarkdownplus'
+    namespace 'com.foresightmobile.fluttermarkdownplus'
 }
 
 flutter {
