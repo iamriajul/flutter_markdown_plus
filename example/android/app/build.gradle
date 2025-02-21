@@ -40,7 +40,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.package.fluttermarkdownplus"
+        applicationId "com.foresightmobile.flutter_markdown_plus_example"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
@@ -54,7 +54,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-    namespace 'com.foresightmobile.fluttermarkdownplus'
+    namespace 'com.foresightmobile.flutter_markdown_plus_example'
 }
 
 flutter {

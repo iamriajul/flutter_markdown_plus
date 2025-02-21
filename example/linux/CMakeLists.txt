@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 set(BINARY_NAME "flutter_markdown_example")
-set(APPLICATION_ID "io.flutter.packages.flutter_markdown_example")
+set(APPLICATION_ID "com.foresightmobile.flutter_markdown_plus_example")
 
 cmake_policy(SET CMP0063 NEW)
 
