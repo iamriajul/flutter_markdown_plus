@@ -27,3 +27,6 @@ flutter:
         - asset: fonts/RobotoMono-Regular.ttf
 
   uses-material-design: true
+
+dartfmt:
+  line_length: 120
