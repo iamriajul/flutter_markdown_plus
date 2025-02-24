@@ -6,7 +6,7 @@
 // ignore_for_file: avoid_implementing_value_types
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:markdown/markdown.dart' as md;
 import '../shared/markdown_demo_widget.dart';
 
@@ -91,8 +91,7 @@ class SubscriptBuilder extends MarkdownElementBuilder {
 /// The subscript syntax demo provides an example of creating an inline syntax
 /// object which defines the syntax for the Markdown inline parser and an
 /// accompanying Markdown element builder object to handle subscript tags.
-class SubscriptSyntaxDemo extends StatelessWidget
-    implements MarkdownDemoWidget {
+class SubscriptSyntaxDemo extends StatelessWidget implements MarkdownDemoWidget {
   const SubscriptSyntaxDemo({super.key});
 
   static const String _title = 'Subscript Syntax Demo';
@@ -121,8 +120,7 @@ class SubscriptSyntaxDemo extends StatelessWidget
             builders: <String, MarkdownElementBuilder>{
               'sub': SubscriptBuilder(),
             },
-            extensionSet: md.ExtensionSet(
-                <md.BlockSyntax>[], <md.InlineSyntax>[SubscriptSyntax()]),
+            extensionSet: md.ExtensionSet(<md.BlockSyntax>[], <md.InlineSyntax>[SubscriptSyntax()]),
           );
         } else {
           return const CircularProgressIndicator();
@@ -133,18 +131,7 @@ class SubscriptSyntaxDemo extends StatelessWidget
 }
 
 class SubscriptBuilder extends MarkdownElementBuilder {
-  static const List<String> _subscripts = <String>[
-    '₀',
-    '₁',
-    '₂',
-    '₃',
-    '₄',
-    '₅',
-    '₆',
-    '₇',
-    '₈',
-    '₉'
-  ];
+  static const List<String> _subscripts = <String>['₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉'];
 
   @override
   Widget visitElementAfter(md.Element element, TextStyle? preferredStyle) {

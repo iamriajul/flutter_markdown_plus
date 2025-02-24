@@ -4,7 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'utils.dart';
 
@@ -30,8 +30,7 @@ void defineTests() {
           ),
         );
 
-        final List<Padding> paddings =
-            tester.widgetList<Padding>(find.byType(Padding)).toList();
+        final List<Padding> paddings = tester.widgetList<Padding>(find.byType(Padding)).toList();
 
         expect(paddings.length, 4);
         expect(

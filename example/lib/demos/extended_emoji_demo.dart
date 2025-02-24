@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:markdown/markdown.dart' as md;
 import '../shared/markdown_demo_widget.dart';
 import '../shared/markdown_extensions.dart';
@@ -61,8 +61,7 @@ class ExtendedEmojiDemo extends StatelessWidget implements MarkdownDemoWidget {
       ' syntax parser by intercepting the parser onMatch routine.';
 
   @override
-  Future<String> get data =>
-      Future<String>.value('Simple test :smiley: :thumbsup:!');
+  Future<String> get data => Future<String>.value('Simple test :smiley: :thumbsup:!');
 
   @override
   Future<String> get notes => Future<String>.value(_notes);
@@ -92,8 +91,7 @@ class ExtendedEmojiDemo extends StatelessWidget implements MarkdownDemoWidget {
                 ),
                 MarkdownBody(
                   data: _extended + snapshot.data!,
-                  extensionSet: md.ExtensionSet(<md.BlockSyntax>[],
-                      <md.InlineSyntax>[ExtendedEmojiSyntax()]),
+                  extensionSet: md.ExtensionSet(<md.BlockSyntax>[], <md.InlineSyntax>[ExtendedEmojiSyntax()]),
                 ),
               ],
             ),

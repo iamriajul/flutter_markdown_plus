@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'utils.dart';
 
@@ -14,8 +14,7 @@ void defineTests() {
     testWidgets(
       'should work with image in uri data scheme',
       (WidgetTester tester) async {
-        const String data =
-            '![alt](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)';
+        const String data = '![alt](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)';
         await tester.pumpWidget(
           boilerplate(
             const Markdown(data: data),
@@ -23,8 +22,7 @@ void defineTests() {
         );
 
         final Iterable<Widget> widgets = tester.allWidgets;
-        final Image image =
-            widgets.firstWhere((Widget widget) => widget is Image) as Image;
+        final Image image = widgets.firstWhere((Widget widget) => widget is Image) as Image;
         expect(image.image.runtimeType, MemoryImage);
       },
     );
@@ -88,8 +86,7 @@ void defineTests() {
         );
 
         final Iterable<Widget> widgets = tester.allWidgets;
-        final SizedBox widget = widgets
-            .firstWhere((Widget widget) => widget is SizedBox) as SizedBox;
+        final SizedBox widget = widgets.firstWhere((Widget widget) => widget is SizedBox) as SizedBox;
         expect(widget.runtimeType, SizedBox);
       },
     );

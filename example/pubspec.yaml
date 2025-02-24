@@ -1,5 +1,5 @@
 name: flutter_markdown_example
-description: Demonstrates how to use the flutter_markdown package.
+description: Demonstrates how to use the flutter_markdown_plus package.
 publish_to: none
 
 environment:
@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_markdown:
+  flutter_markdown_plus:
     path: ../
   markdown: ^7.0.0
 
@@ -27,3 +27,6 @@ flutter:
         - asset: fonts/RobotoMono-Regular.ttf
 
   uses-material-design: true
+
+dartfmt:
+  line_length: 120

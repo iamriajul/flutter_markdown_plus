@@ -6,7 +6,7 @@
 // ignore_for_file: avoid_implementing_value_types
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import '../shared/markdown_demo_widget.dart';
 
 // ignore_for_file: public_member_api_docs
@@ -134,9 +134,9 @@ const String _notes = """
 ## Overview
 
 This is the original Flutter Markdown demo example that was created to
-show how to use the flutter_markdown package. There were limitations in
+show how to use the flutter_markdown_plus package. There were limitations in
 the implementation of this demo example that didn't show the full potential
-or extensibility of using the flutter_markdown package. This demo example
+or extensibility of using the flutter_markdown_plus package. This demo example
 is being preserved for reference purposes.
 
 ## Comments
@@ -144,8 +144,7 @@ is being preserved for reference purposes.
 This demo example is being preserved for reference purposes.
 """;
 
-class OriginalMarkdownDemo extends StatelessWidget
-    implements MarkdownDemoWidget {
+class OriginalMarkdownDemo extends StatelessWidget implements MarkdownDemoWidget {
   OriginalMarkdownDemo({super.key});
 
   static const String _title = 'Original Markdown Demo';
@@ -178,8 +177,7 @@ class OriginalMarkdownDemo extends StatelessWidget
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.arrow_upward),
-        onPressed: () => controller.animateTo(0,
-            duration: const Duration(seconds: 1), curve: Curves.easeOut),
+        onPressed: () => controller.animateTo(0, duration: const Duration(seconds: 1), curve: Curves.easeOut),
       ),
     );
   }

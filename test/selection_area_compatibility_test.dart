@@ -5,14 +5,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() => defineTests();
 
 void defineTests() {
-  group('Compatible with SelectionArea when selectable is default to false',
-      () {
+  group('Compatible with SelectionArea when selectable is default to false', () {
     testWidgets(
       'Text can be selected',
       (WidgetTester tester) async {
@@ -24,13 +23,11 @@ void defineTests() {
           child: const Markdown(
             data: data,
           ),
-          onSelectionChanged: (SelectedContent? selectedContent) =>
-              content = selectedContent,
+          onSelectionChanged: (SelectedContent? selectedContent) => content = selectedContent,
         )));
 
-        final TestGesture gesture = await tester.startGesture(
-            tester.getTopLeft(find.text('How are you?')),
-            kind: PointerDeviceKind.mouse);
+        final TestGesture gesture =
+            await tester.startGesture(tester.getTopLeft(find.text('How are you?')), kind: PointerDeviceKind.mouse);
         addTearDown(gesture.removePointer);
         await tester.pump();
 
@@ -54,13 +51,11 @@ void defineTests() {
           child: const Markdown(
             data: data,
           ),
-          onSelectionChanged: (SelectedContent? selectedContent) =>
-              content = selectedContent,
+          onSelectionChanged: (SelectedContent? selectedContent) => content = selectedContent,
         )));
 
-        final TestGesture gesture = await tester.startGesture(
-            tester.getTopLeft(find.byType(Markdown)),
-            kind: PointerDeviceKind.mouse);
+        final TestGesture gesture =
+            await tester.startGesture(tester.getTopLeft(find.byType(Markdown)), kind: PointerDeviceKind.mouse);
         addTearDown(gesture.removePointer);
         await tester.pump();
 

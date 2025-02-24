@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:markdown/markdown.dart' as md;
 import '../shared/markdown_demo_widget.dart';
 
@@ -36,8 +36,7 @@ class CenteredHeaderDemo extends StatelessWidget implements MarkdownDemoWidget {
   String get title => CenteredHeaderDemo._title;
 
   @override
-  String get description =>
-      'An example of using a user defined builder to implement a centered headline';
+  String get description => 'An example of using a user defined builder to implement a centered headline';
 
   @override
   Future<String> get data => Future<String>.value(_data);

@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 
 // #docregion CreateMarkdownWithEmojiExtension
 import 'package:markdown/markdown.dart' as md;
@@ -51,10 +51,7 @@ void createMarkdownWithEmojiExtension() {
     data: 'Insert emoji :smiley: here',
     extensionSet: md.ExtensionSet(
       md.ExtensionSet.gitHubFlavored.blockSyntaxes,
-      <md.InlineSyntax>[
-        md.EmojiSyntax(),
-        ...md.ExtensionSet.gitHubFlavored.inlineSyntaxes
-      ],
+      <md.InlineSyntax>[md.EmojiSyntax(), ...md.ExtensionSet.gitHubFlavored.inlineSyntaxes],
     ),
   );
   // #enddocregion CreateMarkdownWithEmojiExtension

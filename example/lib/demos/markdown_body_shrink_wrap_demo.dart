@@ -6,7 +6,7 @@
 // ignore_for_file: avoid_implementing_value_types
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import '../shared/dropdown_menu.dart' as dropdown;
 import '../shared/markdown_demo_widget.dart';
 
@@ -30,8 +30,7 @@ This example demonstrates how `MarkdownBody`'s `shrinkWrap` property works.
   height.
 ''';
 
-class MarkdownBodyShrinkWrapDemo extends StatefulWidget
-    implements MarkdownDemoWidget {
+class MarkdownBodyShrinkWrapDemo extends StatefulWidget implements MarkdownDemoWidget {
   const MarkdownBodyShrinkWrapDemo({super.key});
 
   static const String _title = 'Shrink wrap demo';
@@ -50,12 +49,10 @@ class MarkdownBodyShrinkWrapDemo extends StatefulWidget
   Future<String> get notes => Future<String>.value(_notes);
 
   @override
-  State<MarkdownBodyShrinkWrapDemo> createState() =>
-      _MarkdownBodyShrinkWrapDemoState();
+  State<MarkdownBodyShrinkWrapDemo> createState() => _MarkdownBodyShrinkWrapDemoState();
 }
 
-class _MarkdownBodyShrinkWrapDemoState
-    extends State<MarkdownBodyShrinkWrapDemo> {
+class _MarkdownBodyShrinkWrapDemoState extends State<MarkdownBodyShrinkWrapDemo> {
   bool _shrinkWrap = true;
 
   final Map<String, bool> _shrinkWrapMenuItems = <String, bool>{

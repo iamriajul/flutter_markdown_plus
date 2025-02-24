@@ -1,10 +1,8 @@
 // Copyright 2013 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+package com.foresightmobile.flutter_markdown_plus_example
 
-/// A library to render markdown formatted text.
-library flutter_markdown;
+import io.flutter.embedding.android.FlutterActivity
 
-export 'src/builder.dart';
-export 'src/style_sheet.dart';
-export 'src/widget.dart';
+class MainActivity : FlutterActivity() {}

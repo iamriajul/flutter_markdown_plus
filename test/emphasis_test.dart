@@ -4,7 +4,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'utils.dart';
 
@@ -37,8 +37,7 @@ void defineTests() {
               final Finder textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
 
-              final Text textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final Text textWidget = textFinder.evaluate().first.widget as Text;
               final String text = textWidget.textSpan!.toPlainText();
               expect(text, 'foo bar');
 
@@ -65,8 +64,7 @@ void defineTests() {
               expect(textFinder, findsOneWidget);
 
               // Expect text to be unchanged from original data string.
-              final Text textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final Text textWidget = textFinder.evaluate().first.widget as Text;
               final String text = textWidget.textSpan!.toPlainText();
               expect(text, data);
 
@@ -93,8 +91,7 @@ void defineTests() {
               expect(textFinder, findsOneWidget);
 
               // Expect text to be unchanged from original data string.
-              final Text textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final Text textWidget = textFinder.evaluate().first.widget as Text;
               final String text = textWidget.textSpan!.toPlainText();
               expect(text, data);
 
@@ -124,8 +121,7 @@ void defineTests() {
               final Finder textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
 
-              final Text textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final Text textWidget = textFinder.evaluate().first.widget as Text;
               expect(textWidget, isNotNull);
               final String text = textWidget.textSpan!.toPlainText();
               expect(text, 'foobar');
@@ -167,8 +163,7 @@ void defineTests() {
               final Finder textFinder = find.byType(Text);
               expect(textFinder, findsOneWidget);
 
-              final Text textWidget =
-                  textFinder.evaluate().first.widget as Text;
+              final Text textWidget = textFinder.evaluate().first.widget as Text;
               expect(textWidget, isNotNull);
               final String text = textWidget.textSpan!.toPlainText();
               expect(text, '5678');
@@ -1306,8 +1301,7 @@ void defineTests() {
           // Example 403 from GFM.
           'strong emphasis with multiple nested emphasis',
           (WidgetTester tester) async {
-            const String data =
-                '**Gomphocarpus (*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*)**';
+            const String data = '**Gomphocarpus (*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*)**';
             await tester.pumpWidget(
               boilerplate(
                 const MarkdownBody(data: data),
@@ -1320,8 +1314,7 @@ void defineTests() {
             // Expect text to be unchanged from original data string.
             final Text textWidget = textFinder.evaluate().first.widget as Text;
             final String text = textWidget.textSpan!.toPlainText();
-            expect(text,
-                'Gomphocarpus (Gomphocarpus physocarpus, syn. Asclepias physocarpa)');
+            expect(text, 'Gomphocarpus (Gomphocarpus physocarpus, syn. Asclepias physocarpa)');
 
             // There should be five spans of text.
             final TextSpan textSpan = textWidget.textSpan! as TextSpan;
@@ -4042,7 +4035,7 @@ void defineTests() {
         );
       });
 
-      // Rule 14 doesn't make any difference to flutter_markdown but tests for
+      // Rule 14 doesn't make any difference to flutter_markdown_plus but tests for
       // rule 14 are included here for completeness.
       group('Rule 14', () {
         testWidgets(

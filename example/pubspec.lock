@@ -62,13 +62,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_markdown:
+  flutter_markdown_plus:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.7.6+2"
+    version: "1.0.0+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter

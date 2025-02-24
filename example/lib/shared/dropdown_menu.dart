@@ -18,11 +18,9 @@ class DropdownMenu<T> extends StatelessWidget {
     Color? menuItemBackground,
     EdgeInsetsGeometry? menuItemMargin,
     this.onChanged,
-  })  : assert(
-            items.isNotEmpty, 'The items map must contain at least one entry'),
+  })  : assert(items.isNotEmpty, 'The items map must contain at least one entry'),
         background = background ?? Colors.black12,
-        padding =
-            padding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding = padding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         menuItemBackground = menuItemBackground ?? Colors.white,
         menuItemMargin = menuItemMargin ?? const EdgeInsets.only(left: 4);
 

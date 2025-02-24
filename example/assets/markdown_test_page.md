@@ -153,7 +153,7 @@ Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum Lorem proid
 
 ```
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:markdown/markdown.dart' as md;
 
 const String _markdownData = """

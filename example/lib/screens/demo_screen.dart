@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 
 import '../shared/markdown_demo_widget.dart';
 import '../shared/markdown_extensions.dart';
@@ -111,8 +111,7 @@ class DemoNotesView extends StatelessWidget {
   ) async {
     await showDialog<Widget>(
       context: context,
-      builder: (BuildContext context) =>
-          _createDialog(context, text, href, title),
+      builder: (BuildContext context) => _createDialog(context, text, href, title),
     );
   }
 
@@ -166,8 +165,7 @@ class DemoNotesView extends StatelessWidget {
           return Markdown(
             data: snapshot.data!,
             extensionSet: MarkdownExtensionSet.githubFlavored.value,
-            onTapLink: (String text, String? href, String title) =>
-                linkOnTapHandler(context, text, href, title),
+            onTapLink: (String text, String? href, String title) => linkOnTapHandler(context, text, href, title),
           );
         } else {
           return const CircularProgressIndicator();

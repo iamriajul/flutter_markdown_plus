@@ -6,7 +6,7 @@
 // ignore_for_file: avoid_implementing_value_types
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import '../shared/markdown_demo_widget.dart';
 
 // ignore_for_file: public_member_api_docs
@@ -45,8 +45,7 @@ This is the custom bullet list demo. This demo shows how to customize the bullet
 This demo example is being preserved for reference purposes.
 ''';
 
-class CustomBulletListDemo extends StatelessWidget
-    implements MarkdownDemoWidget {
+class CustomBulletListDemo extends StatelessWidget implements MarkdownDemoWidget {
   const CustomBulletListDemo({super.key});
 
   static const String _title = 'Custom Bullet List Demo';
@@ -73,8 +72,7 @@ class CustomBulletListDemo extends StatelessWidget
             fit: BoxFit.scaleDown,
             child: switch (parameters.style) {
               BulletStyle.unorderedList => const Text('・'),
-              BulletStyle.orderedList =>
-                Text('${parameters.nestLevel}-${parameters.index + 1}.'),
+              BulletStyle.orderedList => Text('${parameters.nestLevel}-${parameters.index + 1}.'),
             },
           ),
         ),

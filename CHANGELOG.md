@@ -1,3 +1,7 @@
+## 1.0.0+1
+
+# Initial commit of the flutter_markdown_plus plugin as published on https://pub.dev/packages/flutter_markdown_plus
+
 ## 0.7.6+2
 
 * Updates README to indicate that this package will be discontinued.

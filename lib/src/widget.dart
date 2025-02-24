@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:markdown/markdown.dart' as md;
 
-import '../flutter_markdown.dart';
+import '../flutter_markdown_plus.dart';
 import '_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
 
 /// Signature for callbacks used by [MarkdownWidget] when
@@ -29,14 +29,12 @@ typedef MarkdownOnSelectionChangedCallback = void Function(
 /// Markdown link tag in the document.
 ///
 /// Used by [MarkdownWidget.onTapLink].
-typedef MarkdownTapLinkCallback = void Function(
-    String text, String? href, String title);
+typedef MarkdownTapLinkCallback = void Function(String text, String? href, String title);
 
 /// Signature for custom image widget.
 ///
 /// Used by [MarkdownWidget.imageBuilder]
-typedef MarkdownImageBuilder = Widget Function(
-    Uri uri, String? title, String? alt);
+typedef MarkdownImageBuilder = Widget Function(Uri uri, String? title, String? alt);
 
 /// Signature for custom checkbox widget.
 ///
@@ -137,8 +135,7 @@ abstract class MarkdownElementBuilder {
   ///
   /// If you needn't build a widget, return null.
   @Deprecated('Use visitElementAfterWithContext() instead.')
-  Widget? visitElementAfter(md.Element element, TextStyle? preferredStyle) =>
-      null;
+  Widget? visitElementAfter(md.Element element, TextStyle? preferredStyle) => null;
 }
 
 /// Enum to specify which theme being used when creating [MarkdownStyleSheet]
@@ -169,7 +166,7 @@ enum MarkdownListItemCrossAxisAlignment {
   /// However, note that this alignment does not support intrinsic height
   /// measurements because [RenderFlex] does not support it for
   /// [CrossAxisAlignment.baseline].
-  /// See https://github.com/flutter/flutter_markdown/issues/311 for cases,
+  /// See https://github.com/flutter/flutter_markdown_plus/issues/311 for cases,
   /// where this might be a problem for you.
   ///
   /// See also:
@@ -183,7 +180,7 @@ enum MarkdownListItemCrossAxisAlignment {
   ///
   /// However, note that this alignment might not line up the bullet with the
   /// list text in the way you would expect in certain scenarios.
-  /// See https://github.com/flutter/flutter_markdown/issues/169 for example
+  /// See https://github.com/flutter/flutter_markdown_plus/issues/169 for example
   /// cases that do not produce expected results.
   ///
   /// See also:
@@ -226,8 +223,7 @@ abstract class MarkdownWidget extends StatefulWidget {
     this.builders = const <String, MarkdownElementBuilder>{},
     this.paddingBuilders = const <String, MarkdownPaddingBuilder>{},
     this.fitContent = false,
-    this.listItemCrossAxisAlignment =
-        MarkdownListItemCrossAxisAlignment.baseline,
+    this.listItemCrossAxisAlignment = MarkdownListItemCrossAxisAlignment.baseline,
     this.softLineBreak = false,
   });
 
@@ -338,8 +334,7 @@ abstract class MarkdownWidget extends StatefulWidget {
   State<MarkdownWidget> createState() => _MarkdownWidgetState();
 }
 
-class _MarkdownWidgetState extends State<MarkdownWidget>
-    implements MarkdownBuilderDelegate {
+class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuilderDelegate {
   List<Widget>? _children;
   final List<GestureRecognizer> _recognizers = <GestureRecognizer>[];
 
@@ -352,8 +347,7 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
   @override
   void didUpdateWidget(MarkdownWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.data != oldWidget.data ||
-        widget.styleSheet != oldWidget.styleSheet) {
+    if (widget.data != oldWidget.data || widget.styleSheet != oldWidget.styleSheet) {
       _parseMarkdown();
     }
   }
@@ -365,10 +359,8 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
   }
 
   void _parseMarkdown() {
-    final MarkdownStyleSheet fallbackStyleSheet =
-        kFallbackStyle(context, widget.styleSheetTheme);
-    final MarkdownStyleSheet styleSheet =
-        fallbackStyleSheet.merge(widget.styleSheet);
+    final MarkdownStyleSheet fallbackStyleSheet = kFallbackStyle(context, widget.styleSheetTheme);
+    final MarkdownStyleSheet styleSheet = fallbackStyleSheet.merge(widget.styleSheet);
 
     _disposeRecognizers();
 
@@ -409,8 +401,7 @@ class _MarkdownWidgetState extends State<MarkdownWidget>
     if (_recognizers.isEmpty) {
       return;
     }
-    final List<GestureRecognizer> localRecognizers =
-        List<GestureRecognizer>.from(_recognizers);
+    final List<GestureRecognizer> localRecognizers = List<GestureRecognizer>.from(_recognizers);
     _recognizers.clear();
     for (final GestureRecognizer recognizer in localRecognizers) {
       recognizer.dispose();
@@ -490,8 +481,7 @@ class MarkdownBody extends MarkdownWidget {
     }
     return Column(
       mainAxisSize: shrinkWrap ? MainAxisSize.min : MainAxisSize.max,
-      crossAxisAlignment:
-          fitContent ? CrossAxisAlignment.start : CrossAxisAlignment.stretch,
+      crossAxisAlignment: fitContent ? CrossAxisAlignment.start : CrossAxisAlignment.stretch,
       children: children,
     );
   }
@@ -569,12 +559,10 @@ class Markdown extends MarkdownWidget {
 /// Parse [task list items](https://github.github.com/gfm/#task-list-items-extension-).
 ///
 /// This class is no longer used as Markdown now supports checkbox syntax natively.
-@Deprecated(
-    'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]')
+@Deprecated('Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]')
 class TaskListSyntax extends md.InlineSyntax {
   /// Creates a new instance.
-  @Deprecated(
-      'Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]')
+  @Deprecated('Use [OrderedListWithCheckBoxSyntax] or [UnorderedListWithCheckBoxSyntax]')
   TaskListSyntax() : super(_pattern);
 
   static const String _pattern = r'^ *\[([ xX])\] +';

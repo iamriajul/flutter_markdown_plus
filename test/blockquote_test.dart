@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'utils.dart';
 
@@ -65,14 +65,11 @@ void defineTests() {
           find.byType(DecoratedBox),
         );
         final Text qouteText = tester.widget(find.byType(Text));
-        final List<TextSpan> styledTextParts =
-            (qouteText.textSpan! as TextSpan).children!.cast<TextSpan>();
+        final List<TextSpan> styledTextParts = (qouteText.textSpan! as TextSpan).children!.cast<TextSpan>();
 
         expectTextStrings(
           widgets,
-          <String>[
-            'this is a link: Markdown guide and this is bold and italic'
-          ],
+          <String>['this is a link: Markdown guide and this is bold and italic'],
         );
         expect(
           (blockQuoteContainer.decoration as BoxDecoration).color,
