@@ -1,6 +1,10 @@
+## 1.0.1+1
+
+* Adds support for `blockquote` for `Markdown` widget.
+
 ## 1.0.0+1
 
-# Initial commit of the flutter_markdown_plus plugin as published on https://pub.dev/packages/flutter_markdown_plus
+* Initial commit of the flutter_markdown_plus plugin as published on https://pub.dev/packages/flutter_markdown_plus
 
 ## 0.7.6+2
 
@@ -60,15 +64,16 @@
 
 ## 0.7.1
 
-* Allows for choosing a custom font feature to create superscript in footnotes when the font does not support the `supr` font feature.
-  * Use the `superscriptFontFeatureTag` property in `MarkdownStyleSheet`.
-  * For example, for the `Roboto` font which doesn't support `supr`, you can set `numr`.
+* Allows for choosing a custom font feature to create superscript in footnotes when the font does not support the `supr`
+  font feature.
+    * Use the `superscriptFontFeatureTag` property in `MarkdownStyleSheet`.
+    * For example, for the `Roboto` font which doesn't support `supr`, you can set `numr`.
 
 ## 0.7.0
 
 * **BREAKING CHANGES**:
-  * Replaces parameters at `bulletBuilder` with `MarkdownBulletParameters`.
-  * Introduces a new parameter `nestLevel` that exposes the bullet item's nesting level.
+    * Replaces parameters at `bulletBuilder` with `MarkdownBulletParameters`.
+    * Introduces a new parameter `nestLevel` that exposes the bullet item's nesting level.
 
 ## 0.6.23
 
@@ -98,8 +103,8 @@
 ## 0.6.20
 
 * Adds `textScaler` to `MarkdownStyleSheet`, and deprecates `textScaleFactor`.
-  * Clients using `textScaleFactor: someFactor` should replace it with
-    `TextScaler.linear(someFactor)` to preserve behavior.
+    * Clients using `textScaleFactor: someFactor` should replace it with
+      `TextScaler.linear(someFactor)` to preserve behavior.
 * Removes use of deprecated Flutter framework `textScaleFactor` methods.
 * Updates minimum supported SDK version to Flutter 3.16.
 
@@ -152,7 +157,8 @@
 
 ## 0.6.15+1
 
-* Fixes 'The Scrollbar's ScrollController has no ScrollPosition attached' exception when scrolling scrollable code blocks.
+* Fixes 'The Scrollbar's ScrollController has no ScrollPosition attached' exception when scrolling scrollable code
+  blocks.
 * Fixes stale ignore: prefer_const_constructors.
 * Updates minimum supported SDK version to Flutter 3.10/Dart 3.0.
 
@@ -179,7 +185,8 @@
 
 ## 0.6.12
 
-* Markdown Lists now take into account `fitContent` instead of always expanding to the maximum horizontally ([flutter/flutter#108976](https://github.com/flutter/flutter/issues/108976)).
+* Markdown Lists now take into account `fitContent` instead of always expanding to the maximum
+  horizontally ([flutter/flutter#108976](https://github.com/flutter/flutter/issues/108976)).
 
 ## 0.6.11
 
@@ -202,7 +209,8 @@
 
 ## 0.6.10+3
 
-* Fixes shrinkWrap not taken into account with single child ([flutter/flutter#105299](https://github.com/flutter/flutter/issues/105299)).
+* Fixes shrinkWrap not taken into account with single
+  child ([flutter/flutter#105299](https://github.com/flutter/flutter/issues/105299)).
 
 ## 0.6.10+2
 
@@ -224,7 +232,8 @@
 
 ## 0.6.9
 
-* Leading spaces in a paragraph and in list items are now ignored according to [GFM #192](https://github.github.com/gfm/#example-192) and [GFM #236](https://github.github.com/gfm/#example-236).
+* Leading spaces in a paragraph and in list items are now ignored according
+  to [GFM #192](https://github.github.com/gfm/#example-192) and [GFM #236](https://github.github.com/gfm/#example-236).
 
 ## 0.6.8
 
@@ -284,7 +293,7 @@
 ## 0.5.2
 
 * Added `MarkdownListItemCrossAxisAlignment` to allow for intrinsic height
-   measurements of lists.
+  measurements of lists.
 
 ## 0.5.1
 
@@ -293,8 +302,8 @@
 ## 0.5.0
 
 * BREAKING CHANGE: `MarkdownTapLinkCallback` now has three parameters, not one, exposing more
-   information about a tapped link.
-  * Note for upgraders, the old single parameter `href` is now the second parameter to match the specification.
+  information about a tapped link.
+    * Note for upgraders, the old single parameter `href` is now the second parameter to match the specification.
 * Android example upgraded
 * Test coverage updated to match GitHub Flavoured Markdown and CommonMark
 * Handle links with empty descriptions
@@ -310,7 +319,8 @@
 ## 0.4.3
 
 * Fix merging of `MarkdownStyleSheets`
-* Fix `MarkdownStyleSheet` textScaleFactor to use default value of 1.0, if not provided, instead using the textScaleFactor of the nearest MediaQuery
+* Fix `MarkdownStyleSheet` textScaleFactor to use default value of 1.0, if not provided, instead using the
+  textScaleFactor of the nearest MediaQuery
 
 ## 0.4.2
 
@@ -356,7 +366,8 @@
 * Add MarkdownBody.fitContent
 * Support select text to copy
 * Fix list bullet alignment
-* HTML unescape URIs (temporary workaround for [dart-lang/markdown #272](https://github.com/dart-lang/markdown/issues/272))
+* HTML unescape URIs (temporary workaround
+  for [dart-lang/markdown #272](https://github.com/dart-lang/markdown/issues/272))
 * Rebuilt `example/android` and `example/ios` directories
 
 **Note:** this version has an implicit minimum supported version of Flutter 1.10.7.
@@ -371,8 +382,8 @@ See [flutter/flutter_markdown issue #156](https://github.com/flutter/flutter_mar
 ## 0.2.0
 
 * Updated environment sdk constraints to make the package
-   Dart 2 compatible.  As a result, usage of this version and higher
-   requires a Dart 2 SDK.
+  Dart 2 compatible. As a result, usage of this version and higher
+  requires a Dart 2 SDK.
 
 ## 0.1.6
 
@@ -381,7 +392,7 @@ See [flutter/flutter_markdown issue #156](https://github.com/flutter/flutter_mar
 ## 0.1.5
 
 * Add `mockito` as a dev dependency. Eliminate use of `package:http`, which
-   is no longer part of Flutter.
+  is no longer part of Flutter.
 
 ## 0.1.4
 
@@ -399,8 +410,8 @@ See [flutter/flutter_markdown issue #156](https://github.com/flutter/flutter_mar
 ## 0.1.1
 
 * Add support for local file paths in image links. Make sure to set the
-   `imageDirectory` property to specify the base directory containing the image
-   files.
+  `imageDirectory` property to specify the base directory containing the image
+  files.
 
 ## 0.1.0
 
