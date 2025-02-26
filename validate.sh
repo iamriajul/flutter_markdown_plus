@@ -12,5 +12,5 @@ verifyFlutter () {
   flutter pub get
   sh ./scripts/format.sh --set-exit-if-changed
   flutter analyze --no-pub .
-  flutter test test/all.dart
+  very_good test
 }
