@@ -6,6 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: coactions/setup-xvfb@v1
       - uses: actions/checkout@v2
       - name: Install Flutter
         uses: subosito/flutter-action@v2
