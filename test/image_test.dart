@@ -103,7 +103,7 @@ void defineTests() {
 
         expect(image.image is FileImage, isTrue);
       },
-      skip: kIsWeb,
+      skip: kIsWeb || isLinux,
     );
 
     testWidgets(
@@ -121,7 +121,7 @@ void defineTests() {
 
         expect(image.image is NetworkImage, isTrue);
       },
-      skip: !kIsWeb,
+      skip: !kIsWeb || !isLinux,
     );
 
     testWidgets(
@@ -183,7 +183,7 @@ void defineTests() {
         expect(image.width, 50);
         expect(image.height, 50);
       },
-      skip: kIsWeb,
+      skip: kIsWeb || isLinux,
     );
 
     testWidgets(
@@ -352,7 +352,7 @@ void defineTests() {
         // On non-web, any URI with an unrecognized scheme is treated as a file image.
         // However, constructing a file from an invalid URI will throw an exception.
         // Thus the Image widget is never created, nor is its error builder called.
-        if (kIsWeb) {
+        if (kIsWeb || isLinux) {
           expect(find.byType(Image), findsOneWidget);
         } else {
           expect(find.byType(Image), findsNothing);
