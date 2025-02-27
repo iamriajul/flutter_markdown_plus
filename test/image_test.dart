@@ -164,7 +164,7 @@ void defineTests() {
         await expectLater(
             find.byType(Container), matchesGoldenFile('assets/images/golden/image_test/resource_asset_logo.png'));
       },
-      skip: kIsWeb, // Goldens are platform-specific.
+      skip: kIsWeb || isLinux, // Goldens are platform-specific.
     );
 
     testWidgets(
