@@ -442,7 +442,7 @@ void defineTests() {
             find.byType(Container), matchesGoldenFile('assets/images/golden/image_test/custom_builder_asset_logo.png'));
         imageCache.clear();
       },
-      skip: kIsWeb, // Goldens are platform-specific.
+      skip: kIsWeb || isLinux, // Goldens are platform-specific.
     );
   });
 }
