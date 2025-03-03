@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Updating check scripts
+
 ## 1.0.1+1
 
 * Adds support for `blockquote` for `Markdown` widget.
