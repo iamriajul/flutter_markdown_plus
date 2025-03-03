@@ -13,7 +13,7 @@ jobs:
         with:
           channel: stable
           cache: false
-      - run flutter --version
+      - run: flutter --version
       - name: Install dependencies
         run: flutter pub get
       - name: Analyze
