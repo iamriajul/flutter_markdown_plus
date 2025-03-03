@@ -12,5 +12,16 @@ verifyFlutter () {
   flutter pub get
   sh ./scripts/format.sh --set-exit-if-changed
   flutter analyze --no-pub .
-  very_good test
+
+  ###############################################################################
+  # CODE COVERAGE
+  ###############################################################################
+
+  rm -rf coverage
+  flutter test
 }
+
+###############################################################################
+# INVOKE VERIFICATION FUNCTIONS
+###############################################################################
+verifyFlutter "."
