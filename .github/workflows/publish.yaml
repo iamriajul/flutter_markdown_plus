@@ -2,15 +2,18 @@ on:
   release:
     branches:
       - main
+      - hotfix/publish-script-fix
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.27.1'
+          channel: stable
+          cache: false
+      - run flutter --version
       - name: Install dependencies
         run: flutter pub get
       - name: Analyze
