@@ -9,9 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  flutter_markdown_latex: ^0.3.4
   flutter_markdown_plus:
     path: ../
-  markdown: ^7.0.0
+
 
 dev_dependencies:
   flutter_test:
