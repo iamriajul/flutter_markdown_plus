@@ -1,3 +1,7 @@
+## 1.0.3
+
+* Add support for LaTeX rendering in markdown.
+
 ## 1.0.2
 
 * Updating check scripts
