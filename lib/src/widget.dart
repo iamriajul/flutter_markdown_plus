@@ -80,6 +80,18 @@ enum BulletStyle {
   unorderedList,
 }
 
+
+/// A builder for markdown block container.
+/// Called when a block element to widget conversion is done.
+/// You can add your final touch to a block element's widget.
+typedef MarkdownBlockContainerBuilder = Widget Function(
+  BuildContext context,
+  Widget child,
+  md.Element element,
+  TextStyle? preferredStyle,
+  TextStyle? parentStyle,
+);
+
 /// Creates a format [TextSpan] given a string.
 ///
 /// Used by [MarkdownWidget] to highlight the contents of `pre` elements.
@@ -220,6 +232,7 @@ abstract class MarkdownWidget extends StatefulWidget {
     this.imageBuilder,
     this.checkboxBuilder,
     this.bulletBuilder,
+    this.blockContainerBuilder,
     this.builders = const <String, MarkdownElementBuilder>{},
     this.paddingBuilders = const <String, MarkdownPaddingBuilder>{},
     this.fitContent = false,
@@ -281,6 +294,9 @@ abstract class MarkdownWidget extends StatefulWidget {
 
   /// Called when building a bullet
   final MarkdownBulletBuilder? bulletBuilder;
+
+  /// Called when a block element to widget conversion is done.
+  final MarkdownBlockContainerBuilder? blockContainerBuilder;
 
   /// Render certain tags, usually used with [extensionSet]
   ///
@@ -385,6 +401,7 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
       imageBuilder: widget.imageBuilder,
       checkboxBuilder: widget.checkboxBuilder,
       bulletBuilder: widget.bulletBuilder,
+      blockContainerBuilder: widget.blockContainerBuilder,
       builders: widget.builders,
       paddingBuilders: widget.paddingBuilders,
       fitContent: widget.fitContent,
@@ -461,6 +478,7 @@ class MarkdownBody extends MarkdownWidget {
     super.imageBuilder,
     super.checkboxBuilder,
     super.bulletBuilder,
+    super.blockContainerBuilder,
     super.builders,
     super.paddingBuilders,
     super.listItemCrossAxisAlignment,
@@ -515,6 +533,7 @@ class Markdown extends MarkdownWidget {
     super.imageBuilder,
     super.checkboxBuilder,
     super.bulletBuilder,
+    super.blockContainerBuilder,
     super.builders,
     super.paddingBuilders,
     super.listItemCrossAxisAlignment,
