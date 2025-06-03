@@ -9,7 +9,9 @@ import 'package:markdown/markdown.dart' as md;
 
 import 'utils.dart';
 
-void main() {
+void main() => defineTests();
+
+void defineTests() {
   group('Block Container Builder', () {
     testWidgets(
       'custom container for paragraph',
