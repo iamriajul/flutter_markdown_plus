@@ -218,6 +218,7 @@ abstract class MarkdownWidget extends StatefulWidget {
   const MarkdownWidget({
     super.key,
     required this.data,
+    this.nodes,
     this.selectable = false,
     this.styleSheet,
     this.styleSheetTheme = MarkdownStyleSheetBaseTheme.material,
@@ -242,6 +243,10 @@ abstract class MarkdownWidget extends StatefulWidget {
 
   /// The Markdown to display.
   final String data;
+
+  /// Optional, pre-parsed Abstract Syntax Tree to be used instead of parsing inside the widget.
+  /// This is helpful if you want to parse from state management level, or maybe for utilizing isolates.
+  final List<md.Node>? nodes;
 
   /// If true, the text is selectable.
   ///
@@ -374,11 +379,10 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
     super.dispose();
   }
 
-  void _parseMarkdown() {
-    final MarkdownStyleSheet fallbackStyleSheet = kFallbackStyle(context, widget.styleSheetTheme);
-    final MarkdownStyleSheet styleSheet = fallbackStyleSheet.merge(widget.styleSheet);
-
-    _disposeRecognizers();
+  List<md.Node> _parseNodes() {
+    if (widget.nodes != null) {
+      return widget.nodes!;
+    }
 
     final md.Document document = md.Document(
       blockSyntaxes: widget.blockSyntaxes,
@@ -389,7 +393,16 @@ class _MarkdownWidgetState extends State<MarkdownWidget> implements MarkdownBuil
 
     // Parse the source Markdown data into nodes of an Abstract Syntax Tree.
     final List<String> lines = const LineSplitter().convert(widget.data);
-    final List<md.Node> astNodes = document.parseLines(lines);
+    return document.parseLines(lines);
+  }
+
+  void _parseMarkdown() {
+    final MarkdownStyleSheet fallbackStyleSheet = kFallbackStyle(context, widget.styleSheetTheme);
+    final MarkdownStyleSheet styleSheet = fallbackStyleSheet.merge(widget.styleSheet);
+
+    _disposeRecognizers();
+
+    final List<md.Node> astNodes = _parseNodes();
 
     // Configure a Markdown widget builder to traverse the AST nodes and
     // create a widget tree based on the elements.
@@ -464,6 +477,7 @@ class MarkdownBody extends MarkdownWidget {
   const MarkdownBody({
     super.key,
     required super.data,
+    super.nodes,
     super.selectable,
     super.styleSheet,
     super.styleSheetTheme = null,
@@ -519,6 +533,7 @@ class Markdown extends MarkdownWidget {
   const Markdown({
     super.key,
     required super.data,
+    super.nodes,
     super.selectable,
     super.styleSheet,
     super.styleSheetTheme = null,
