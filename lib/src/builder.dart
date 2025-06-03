@@ -108,6 +108,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     required this.imageBuilder,
     required this.checkboxBuilder,
     required this.bulletBuilder,
+    required this.blockContainerBuilder,
     required this.builders,
     required this.paddingBuilders,
     required this.listItemCrossAxisAlignment,
@@ -139,6 +140,9 @@ class MarkdownBuilder implements md.NodeVisitor {
 
   /// Called when building a custom bullet.
   final MarkdownBulletBuilder? bulletBuilder;
+
+  /// Called when a block element to widget conversion is done.
+  final MarkdownBlockContainerBuilder? blockContainerBuilder;
 
   /// Call when build a custom widget.
   final Map<String, MarkdownElementBuilder> builders;
@@ -387,11 +391,13 @@ class MarkdownBuilder implements md.NodeVisitor {
         }
       }
 
+      final TextStyle? preferredStyle = styleSheet.styles[tag];
+      final TextStyle? parentStyle = _inlines.isNotEmpty ? _inlines.last.style : null;
       Widget child = builders[tag]?.visitElementAfterWithContext(
             delegate.context,
             element,
-            styleSheet.styles[tag],
-            _inlines.isNotEmpty ? _inlines.last.style : null,
+            preferredStyle,
+            parentStyle,
           ) ??
           defaultChild();
 
@@ -470,6 +476,15 @@ class MarkdownBuilder implements md.NodeVisitor {
         child = Container(decoration: styleSheet.horizontalRuleDecoration);
       }
 
+      if (blockContainerBuilder != null) {
+        child = blockContainerBuilder!(
+          delegate.context,
+          child,
+          element,
+          preferredStyle,
+          parentStyle,
+        );
+      }
       _addBlockChild(child);
     } else {
       final _InlineElement current = _inlines.removeLast();
