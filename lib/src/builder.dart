@@ -10,7 +10,8 @@ import '_functions_io.dart' if (dart.library.js_interop) '_functions_web.dart';
 import 'style_sheet.dart';
 import 'widget.dart';
 
-final List<String> _kBlockTags = <String>[
+/// The [kBlockTags] is a list of block tags.
+final List<String> kBlockTags = <String>[
   'p',
   'h1',
   'h2',
@@ -33,7 +34,7 @@ final List<String> _kBlockTags = <String>[
 
 const List<String> _kListTags = <String>['ul', 'ol'];
 
-bool _isBlockTag(String? tag) => _kBlockTags.contains(tag);
+bool _isBlockTag(String? tag) => kBlockTags.contains(tag);
 
 bool _isListTag(String tag) => _kListTags.contains(tag);
 
@@ -195,7 +196,7 @@ class MarkdownBuilder implements md.NodeVisitor {
 
     builders.forEach((String key, MarkdownElementBuilder value) {
       if (value.isBlockElement()) {
-        _kBlockTags.add(key);
+        kBlockTags.add(key);
       }
     });
 
