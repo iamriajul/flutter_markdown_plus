@@ -486,7 +486,7 @@ class MarkdownBuilder implements md.NodeVisitor {
           parentStyle,
         );
       }
-      _addBlockChild(child);
+      _addBlockChild(child, element: element);
     } else {
       final _InlineElement current = _inlines.removeLast();
       final _InlineElement parent = _inlines.last;
@@ -718,9 +718,12 @@ class MarkdownBuilder implements md.NodeVisitor {
     }
   }
 
-  void _addBlockChild(Widget child) {
+  void _addBlockChild(Widget child, {
+    md.Element? element
+  }) {
     final _BlockElement parent = _blocks.last;
-    if (parent.children.isNotEmpty) {
+    if (parent.children.isNotEmpty && (element == null || !element.attributes.containsKey('exclude_margin'))) {
+      // A block element might request to not add spacing via exclude_margin attribute.
       parent.children.add(SizedBox(height: styleSheet.blockSpacing));
     }
     parent.children.add(child);
